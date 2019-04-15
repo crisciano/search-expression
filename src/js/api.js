@@ -2,11 +2,24 @@ var d = document;
 var urlApi = "https://api-pacientes.herokuapp.com/pacientes";
 var __table = d.querySelector('#tabela-pacientes');
 
-fetch(urlApi)
-    .then(res => res.json())
-    .then((res)=>{
-        res.map( paciente =>{ CreateTemplate(paciente) })
+// fetch(urlApi)
+//     .then(res => res.json())
+//     .then((res)=>{
+//         res.map( paciente =>{ CreateTemplate(paciente) })
+//     })
+
+function Fetch(urlApi){
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', urlApi);
+
+    xhr.addEventListener('load', ()=> {
+        var pacientes = JSON.parse(xhr.responseText);
+        pacientes.map(paciente=> CreateTemplate(paciente))
     })
+
+    xhr.send();
+}
+Fetch(urlApi);
 
 // recever obj
 function CreateTemplate(paciente){
