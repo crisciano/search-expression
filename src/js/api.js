@@ -13,8 +13,10 @@ function Fetch(urlApi){
     xhr.open('GET', urlApi);
 
     xhr.addEventListener('load', ()=> {
-        var pacientes = JSON.parse(xhr.responseText);
-        pacientes.map(paciente=> CreateTemplate(paciente))
+        if (xhr.status == 200) {
+            var pacientes = JSON.parse(xhr.responseText);
+            pacientes.map(paciente=> CreateTemplate(paciente))
+        }else{ console.log(`Erro ${xhr.status} -> ${xhr.responseText} `) }
     })
 
     xhr.send();
