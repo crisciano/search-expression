@@ -1,0 +1,5 @@
+User-agent: *
+Crawl-delay: 120
+Disallow: /js/
+Allow: /
+Sitemap: /sitemap.xml

@@ -1,0 +1,64 @@
+@import "variaveis";
+@import "mixins";
+
+/* padrao  */
+body{ font-family: $font; }
+section { padding: 80px 0; }
+.img-responsive-center { margin: 0 auto; }
+.wd-100{ width: 100% }
+h1, h2, h3, h4, h5, p, a, span, label{  font-family: $font, sans-serif; 
+	&.light{ font-weight: 300;}
+	&.regular{ font-weight: 400;}
+	&.medium{font-weight: 500;}
+	&.semibold{font-weight: 600;}
+	&.bold{font-weight: 700;}
+	&.extra{font-weight: 800;}
+	&.black{font-weight: 900;}
+}
+a{ color: $primary; }
+a:hover{ color: $primary-lighten}
+.relative{position: relative; }
+.none{display:none;}
+.block{display: block;}
+.hidden{visibility: hidden;}
+button{ cursor: pointer; }
+
+/*remove box-shadow input*/
+input[type=text], input[type=tel], input[type=email], textarea, button, .btn:focus, .btn.focus, .btn-primary:focus, .btn-primary.focus, .navbar-toggler:focus { background-image: none; outline: 0; -webkit-box-shadow: none; box-shadow: none; }
+
+/* custom css */
+.overlay:after { background: rgba($primary, .5); position: absolute; content: ""; top: 0; left: 0; width: 100%; height: 100%; }
+
+.fake-parallax{
+	background-attachment: fixed;
+}
+.card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+input[type=text], 
+input[type=tel], 
+input[type=email], 
+input[type=number],
+input[type=password], 
+input[type=date], 
+textarea,
+select{
+	// @include placeholder($cinza-escuro);  
+	background: transparent; 
+	border-radius: 0;
+	color: $branco;
+    border: none;
+    // border-bottom: 2px solid $cinza;
+}
+
+/* Animação */
+[data-anime] { opacity: 0; transition: .3s;}
+[data-anime="left"] { transform: translate3d(-50px, 0, 0);}
+[data-anime="right"] {transform: translate3d(50px, 0, 0);}
+[data-anime="top"] {transform: translate3d(0, -50px, 0);}
+[data-anime="bottom"] {transform: translate3d(0, 50px, 0);}
+[data-anime].animate {opacity: 1; transform: translate3d(0px, 0px, 0px);}

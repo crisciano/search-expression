@@ -1,0 +1,143 @@
+/** mixins  **/
+
+@mixin d-flex{
+	display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+@mixin align-items-center{
+	-webkit-box-align: center !important;
+    -webkit-align-items: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+
+@mixin justify-content-center {
+	-webkit-box-pack: center !important;
+    -webkit-justify-content: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;	
+}
+
+
+@mixin flex-column {
+	-webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -webkit-flex-direction: column !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+}
+
+@mixin flex-row {
+	-webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+    -webkit-flex-direction: row !important;
+    -ms-flex-direction: row !important;
+    flex-direction: row !important;
+}
+
+@mixin borda-padrao ($raio: 0.3em){
+	-webkit-border-radius: $raio;
+	-moz-border-radius: $raio;
+	-o-border-radius: $raio;
+	-ms-border-radius: $raio;
+	border-radius: $raio;
+}
+
+@mixin btn{
+	padding: 10px;
+	text-decoration: none;
+}
+
+@mixin shadow($shadow: 0 2px 6.65px rgba(0,0,0,0.3)){
+	-webkit-box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+	-o-box-shadow: $shadow;
+	-ms-box-shadow: $shadow;
+	box-shadow: $shadow;
+}
+
+@mixin border($raio: 1em){
+	-webkit-border-radius: $raio;
+	-moz-border-radius: $raio;
+	-o-border-radius: $raio;
+	-ms-border-radius: $raio;
+	border-radius: $raio;
+}
+
+@mixin bg($dir, $url) {
+	background: url($dir+$url);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50%;
+	position: relative;
+}
+
+@mixin bg-parallax($dir, $url) {
+	background: url($dir+$url);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50%;
+	position: relative;
+	background-attachment: fixed;
+}
+
+@mixin transform($effect) {
+	-webkit-transform: $effect;
+	-ms-transform: $effect;   
+	-moz-transform: $effect;
+	transform: $effect;
+}
+
+@mixin transition($effect: all 1s linear) {
+	-webkit-transition: $effect;
+	-ms-transition: $effect;
+	-moz-transition: $effect;
+	transition: $effect;
+}
+
+@mixin rotate($grau) {
+	-webkit-transform: rotate($grau);
+	-ms-transform: rotate($grau);   
+	-moz-transform: rotate($grau);
+	transform: rotate($grau);
+}
+
+@mixin placeholder($color) {
+	&::-webkit-input-placeholder {color: $color; }
+	&::-moz-placeholder { color: $color;}
+	&:-ms-input-placeholder { color: $color; }
+	&:-moz-placeholder {color: $color; }
+}
+
+%bg{
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50%;
+}
+
+//placeholder
+%shadow {
+	-webkit-box-shadow: 0 2px 6.65px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0 2px 6.65px rgba(0,0,0,0.3);
+	-o-box-shadow: 0 2px 6.65px rgba(0,0,0,0.3);
+	-ms-box-shadow: 0 2px 6.65px rgba(0,0,0,0.3);
+	box-shadow: 0 2px 6.65px rgba(0,0,0,0.3);
+}
+
+// function
+@function multiplicador($multiplicador) {
+	@return $multiplicador * $size-default;
+}
+@function divisor($divisor) {
+	@return $divisor / $size-default;
+}
+@function soma($soma) {
+	@return $soma + $size-default;
+}
+@function subtracao($subtrair) {
+	@return $subtrair - $size-default;
+}
+

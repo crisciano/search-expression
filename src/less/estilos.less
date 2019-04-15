@@ -1,0 +1,415 @@
+@import "conf/variaveis";
+@import "conf/mixins";
+
+/** Geral **/
+body {
+  font-family: "Roboto Slab", serif;
+  .container {
+    width: 940px;
+    margin: 0 auto;
+    @media @max-tablet {
+      width: 90%;
+      .titulo-secao {
+        text-decoration: underline;
+        font-size: 2em;
+        text-align: center;
+      }
+      
+      .sobre,
+      .planos,
+      .blog,
+      .contato {
+        padding: 3em 0 6em 0;
+      }
+      h2 {
+        margin-top: 0;
+      }
+      .menu-opcoes,
+      .menu-opcoes li,
+      .post-destaque,
+      .posts-antigos,
+      form {
+        width: auto;
+      }
+    }
+  }
+}
+
+/** Header **/
+header {
+  border-top: 5px solid @primary;
+  background: fade(@secundary, 80);
+  height: 90px;
+  width: 100%;
+  position: absolute;
+  .container {
+    position: relative;
+  }
+  .menu-opcoes {
+    position: absolute;
+    right: 0;
+    top: -.5em;
+    font-size: 1.2em;
+    font-weight: lighter;
+    ul {
+      padding-left: 0;
+    }
+    li {
+      display: inline-block;
+      width: 5em;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  @media @max-tablet {
+    height: auto;
+		.container{
+			position: static;
+		}
+		h1 {
+			max-width: 50%;
+			margin: 0 auto;
+			img {
+				max-width: 100%;
+				margin: .5em auto;
+				display: block;
+			}
+		}
+		.menu-opcoes {
+			position: static;
+			display: block;
+			text-align: center;
+			li {
+				margin: .4em;
+			}
+		}
+  }
+}
+
+/** Destaque **/
+.destaque {
+  .bg("destaque.jpg", repeat-x);
+  // background: url(../img/destaque.jpg) center bottom repeat-x;
+  -webkit-background-size: cover;
+  background-size: cover;
+  color: @branco;
+  height: 330px;
+  padding-top: 10em;
+  p {
+    width: 30em;
+    &:first-child {
+      width: 30em;
+      font-size: 1.3em;
+      line-height: 1.1;
+      &:first-line {
+        font-size: 2.2em;
+        font-weight: bold;
+      }
+    }
+  }
+  button {
+    margin-top: 1em;
+    background: @primary;
+    border: 0;
+    padding: .6em;
+    font-size: 1.2em;
+    &:extend(.border);
+    &:extend(.shadow);
+    font-weight: bold;
+  }
+  @media @max-tablet {
+    font-size: 14px;
+    height: 250px;
+  }
+}
+
+/** Sobre **/
+.sobre {
+  background: #ebebeb;
+  .duas-colunas {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    columns: 1;
+    h3 {
+      margin: 0;
+    }
+  }
+  p {
+    font: .9em/1.8 sans-serif;
+    &:first-child {
+      margin-bottom: 3em;
+    }
+  }
+  .plataformas {
+    padding: 0;
+    li {
+      display: inline-block;
+      width: 50px;
+      height: 60px;
+      .img-replacement;
+      background-position: center;
+      margin: 1em 1.5em 0 0;
+      &:nth-child(1) {
+        .bg("logo-apple.png");
+        // background-image: url(../img/logo-apple.png);
+      }
+      &:nth-child(2) {
+        .bg("logo-android.png");
+        // background-image: url(../img/logo-android.png);
+      }
+      &:nth-child(3) {
+        .bg("logo-windows.png");
+        // background-image: url(../img/logo-windows.png);
+      }
+      &:nth-child(4) {
+        .bg("logo-blackberry.png");
+        // background-image: url(../img/logo-blackberry.png);
+      }
+    }
+  }
+}
+
+/** Planos **/
+.planos {
+  background: @secundary;
+  h2 {
+    color: @branco;
+  }
+  .plano {
+    background: @branco;
+    width: 18em;
+    display: inline-block;
+    margin: 1em 0 0 1.4em;
+    padding-bottom: 2em;
+    &:hover {
+      background: #dedede;
+    }
+    h3 {
+      color: @branco;
+      font-size: 1.8em;
+      background: @primary;
+      text-align: center;
+      height: 2em;
+      padding-top: .6em;
+      margin-top: 0;
+    }
+    div {
+      text-align: center;
+      color: @primary;
+      font-size: 2.75em;
+    }
+  }
+  .itens-plano {
+    padding-left: 1.2em;
+  }
+  .itens-plano li {
+    font-size: 1em;
+    list-style: none;
+    border-bottom: 1px solid #acacac;
+    padding: .5em;
+    width: 14.8em;
+    &:last-child {
+      border: 0;
+    }
+    span {
+      float: right;
+    }
+  }
+  button {
+    background: @primary;
+    border: 0;
+    color: @branco;
+    width: 210px;
+    height: 38px;
+    font-size: 1.2em;
+    &:extend(.border);
+    &:extend(.shadow);
+    margin-left: 2em;
+  }
+  .icone-check, .icone-x {
+    .bg("sprite.png");
+    width: 18px;
+    height: 18px;
+  }
+  .icone-check {
+    background-position: -5px -5px;
+  }
+  
+  .icone-x {
+    background-position: -33px -5px;
+  }
+}
+
+/** Blog **/
+.blog {
+  display: block;
+  position: relative;
+  &::after {
+    content: "";
+    .bg('fundo.png', repeat);
+    // background: url(../img/fundo.png);
+    background-size: 25px 25px;
+    opacity: .15;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+  .post-destaque,
+  .posts-antigos {
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .post-destaque {
+    margin-right: 2em;
+    img {
+      width: 100%;
+    }
+  }
+  .posts-antigos {
+    a {
+      text-decoration: none;
+      color: black;
+      .bg('icone-relogio.png', no-repeat, left center, inherit);
+      // background: url(../img/icone-relogio.png) left center no-repeat;
+      padding-left: 2.5em;
+      height: 1.7em;
+      display: block;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/** Contato **/
+
+.contato{
+  input,
+  button {
+    display: block;
+  }
+  form {
+    margin: 0 auto;
+    width: 50%;
+  }
+  input,
+  textarea {
+    width: 100%;
+    margin-bottom: .8em;
+    padding: 4px 8px;
+    .border;
+    border: 2px solid #ccc;
+  }
+  button {
+    margin: 0 auto;
+    background: @primary;
+    border: 0;
+    color: @branco;
+    width: 210px;
+    height: 38px;
+    font-size: 1.2em;
+    &:extend(.border);
+    &:extend(.shadow);
+  }
+}
+
+
+
+
+/** Footer **/
+footer {
+  display: block;
+  position: relative;
+  &::after {
+    content: "";
+    .bg("fundo-rodape.png");
+    // background: url(../img/fundo-rodape.png);
+    opacity: .02;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+  &::before {
+    content: "";
+    background: @secundary;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+  .container {
+    padding-top: 3em;
+    height: 6.5em;
+    position: relative;
+    img {
+      width: 250px;
+    }
+  }
+  .menu-rodape,
+  .social {
+    position: absolute;
+    li {
+      display: inline;
+    }
+  }
+  .menu-rodape {
+    ul{
+      li{
+        display: inline-block;
+        margin-left: 2em;
+      }
+    }
+  }
+  .menu-rodape {
+    top: 1em;
+    right: 0;
+  }
+  .social {
+    bottom: 0;
+    right: 0;
+  }
+  a {
+    color: @branco;
+    text-decoration: none;
+  }
+  .social{
+    li {
+      float: left;
+      a {
+        display: block;
+        width: 55px;
+        height: 55px;
+        .img-replacement;
+        margin-left: 1em;
+      }
+    }
+    a {
+      background-position: top;
+      background-size: 50px 50px;
+      a[href*="facebook"] {
+        background-image: url(../img/facebook.png);
+      }
+      a[href*="twitter"] {
+        background-image: url(../img/twitter.png);
+      }
+      a[href*="instagram"] {
+        background-image: url(../img/instagram.png);
+      }
+    }
+  } 
+}

@@ -1,0 +1,21 @@
+/** mixin **/
+.border{
+    -webkit-border-radius: 0.3em;
+    border-radius: 0.3em;
+}
+.shadow(@default : rgba(0, 0, 0, 0.3)){
+    box-shadow: 0 2px 6.65px 0.35px @default;
+}
+
+.bg(@img, @repeat: no-repeat, @position: 50%, @size: cover) {
+    background: url("@{dir}/@{img}");
+    background-repeat: @repeat;
+    background-size: @size;
+    background-position: @position;
+}
+
+.img-replacement{
+    text-indent: -9999px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
