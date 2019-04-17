@@ -3,9 +3,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Aparecida Nutrição</title>
-		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	</head>
 	<body>
@@ -28,6 +29,33 @@
 							<th>Altura(m)</th>
 							<th>Gordura Corporal(%)</th>
 							<th>IMC</th>
+						</tr>
+						<tr>
+							<th>
+								<span onclick="order(0,'string')" class="cursor">
+									<i class="fa fa-arrow-down"></i>
+								</span>
+							</th>
+							<th>
+								<span onclick="order(1, 'number')" class="cursor">
+									<i class="fa fa-arrow-down"></i>
+								</span>
+							</th>
+							<th>
+								<span onclick="order(2, 'number')" class="cursor">
+									<i class="fa fa-arrow-down"></i>
+								</span>
+							</th>
+							<th>
+								<span onclick="order(3, 'number')" class="cursor">
+									<i class="fa fa-arrow-down"></i>
+								</span>
+							</th>
+							<th>
+								<span onclick="order(4, 'number')" class="cursor">
+									<i class="fa fa-arrow-down"></i>
+								</span>
+							</th>
 						</tr>
 					</thead>
 					<tbody id="tabela-pacientes">
@@ -104,6 +132,8 @@
 		<script src="js/form.js" ></script>
 		<script src="js/search.js" ></script>
 		<script src="js/api.js" ></script>
+		<script src="js/order.js" ></script>
+
 		
 	</body>
 </html>
