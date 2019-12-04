@@ -19,11 +19,5 @@ function order(line, type){
     })
 }
 
-function orderString(arr){
-    return arr.sort((a,b)=>{ 
-        if(a.innerHTML < b.innerHTML) { return -1; }
-        if(a.innerHTML > b.innerHTML) { return 1; }
-        return 0;
-    });
-}
+function orderString(arr){ return arr.sort((a,b)=> a.innerHTML < b.innerHTML ? -1 : 1 );}
 function orderNumber(arr){ return arr.sort((a,b)=> a.innerHTML - b.innerHTML) }
